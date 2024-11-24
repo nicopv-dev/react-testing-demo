@@ -1,11 +1,8 @@
-import Button from "./components/common/button";
+import { RouterProvider } from "react-router-dom";
+import defaultRouter from "./router/default.router";
 
 function App() {
-  return (
-    <>
-      <Button title="test" />
-    </>
-  );
+  return <RouterProvider router={defaultRouter} />;
 }
 
 export default App;
