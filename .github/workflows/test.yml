@@ -1,0 +1,38 @@
+name: ""
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "src/**"
+      - ".github/workflows/test.yml"
+
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "src/**"
+      - ".github/workflows/test.yml"
+
+jobs:
+  testing:
+    name: Testing React app
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [21.x]
+
+    steps:
+      - name: 🔧Checkout code
+        uses: actions/checkout@v2
+
+      - name: 🔋Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 🛡️Install dependencies
+        run: npm install
+
+      - name: 🎟️Run tests
+        run: npm run test:coverage
