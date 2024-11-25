@@ -1,6 +1,10 @@
 import About from "@/pages/about";
 import Home from "@/pages/home";
-import { type RouteObject, createBrowserRouter } from "react-router-dom";
+import {
+  type RouteObject,
+  createBrowserRouter,
+  createMemoryRouter,
+} from "react-router-dom";
 
 export const defaultRoutes: RouteObject[] = [
   {
@@ -14,5 +18,6 @@ export const defaultRoutes: RouteObject[] = [
 ];
 
 const defaultRouter = createBrowserRouter(defaultRoutes);
+export const defaultMemoryRouter = createMemoryRouter(defaultRoutes);
 
 export default defaultRouter;

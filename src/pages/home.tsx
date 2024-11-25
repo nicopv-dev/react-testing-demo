@@ -1,7 +1,7 @@
-import { useProducts } from "@/hooks/products";
+import { useGetProducts } from "@/hooks/useGetProducts";
 
 export default function Home() {
-  const { data, isPending } = useProducts();
+  const { data: products, isPending } = useGetProducts();
 
   return (
     <div>
@@ -13,7 +13,22 @@ export default function Home() {
         quod eos totam impedit facere. Voluptatibus amet ipsum sint fuga!
       </p>
 
-      <section>{isPending ? <div>Loading...</div> : <p>{data}</p>}</section>
+      <section>
+        {isPending ? (
+          <div>Loading...</div>
+        ) : products ? (
+          <ul>
+            {products.map((product) => (
+              <li key={product.id}>
+                <h2>{product.title}</h2>
+                <p>{product.description}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <></>
+        )}
+      </section>
     </div>
   );
 }

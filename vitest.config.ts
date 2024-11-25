@@ -6,6 +6,11 @@ const testConfig = defineConfig({
     environment: "jsdom",
     globals: true,
   },
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
 });
 
 export default mergeConfig(defaultConfig, testConfig);
