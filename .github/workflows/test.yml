@@ -1,4 +1,5 @@
-name: ""
+name: "🈸React testing"
+
 on:
   push:
     branches:
@@ -35,4 +36,4 @@ jobs:
         run: npm install
 
       - name: 🎟️Run tests
-        run: npm run test:coverage
+        run: npm run test
